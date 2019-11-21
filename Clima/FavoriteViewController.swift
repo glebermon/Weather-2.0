@@ -39,9 +39,6 @@ class FavoriteViewController: UIViewController, ChangeCityDelegate {
         setupNavigationBar()
         view.backgroundColor = UIColor(white: 0.3, alpha: 0.7)
         loadData()
-        print(weathersData.count)
-        print(citiesArray.count)
-        updateWeatherInfo()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -105,9 +102,10 @@ extension FavoriteViewController : UITableViewDelegate, UITableViewDataSource {
 extension FavoriteViewController {
     private func updateWeatherInfo() {
         let session = URLSession.shared
-        var citiesString = citiesArray.joined(separator: ",")
+        var citiesString = ""
         if citiesArray.count < 1 {
 //            citiesString = "707860"
+            print("no element to delete")
         } else {
             citiesString = citiesArray.joined(separator: ",")
         }
@@ -167,7 +165,11 @@ extension FavoriteViewController {
 
 extension FavoriteViewController : TableViewDelegate {
     func deleteRowAtIndexPath(indexPath: IndexPath) {
-        print("delete: \(indexPath)")
+        weathersData.remove(at: indexPath.row)
+        citiesArray.remove(at: indexPath.row)
+        table.deleteRows(at: [indexPath], with: .fade)
+        saveDate()
+        
     }
     
     func didSelectItem(item: Int) {

@@ -33,29 +33,35 @@ class ChangeCityViewController: UIViewController {
     //This is the IBAction that gets called when the user taps on the "Get Weather" button:
     @IBAction func getWeatherPressed(_ sender: AnyObject) {
         
+        guard let text = changeCityTextField.text else { return }
+        
         var cityName = ""
-        if segueId == "123" {
+        if segueId == "123" && text.count > 0 {
         //1 Get the city name the user entered in the text field
             var n = 1
-            for (i, v) in changeCityTextField.text!.enumerated() {
+            for (i, v) in text.enumerated() {
                 
                 if v == "," {
                     if n == 2 {
-                        cityName = (changeCityTextField.text!.dropFirst(i + 1)).trimmingCharacters(in: .whitespacesAndNewlines)
+                        cityName = (text.dropFirst(i + 1)).trimmingCharacters(in: .whitespacesAndNewlines)
 //                        print(cityName)
                     }
                 n += 1
                 }
             }
-        } else {
-            cityName = changeCityTextField.text!
+            delegate?.userEnteredANewCityName(city: cityName)
+            self.dismiss(animated: true, completion: nil)
+        } else if text.count > 0 {
+            cityName = text
+            delegate?.userEnteredANewCityName(city: cityName)
+            self.dismiss(animated: true, completion: nil)
         }
         
         //2 If we have a delegate set, call the method userEnteredANewCityName
-        delegate?.userEnteredANewCityName(city: cityName)
+//        delegate?.userEnteredANewCityName(city: cityName)
         
         //3 dismiss the Change City View Controller to go back to the WeatherViewController
-        self.dismiss(animated: true, completion: nil)
+//        self.dismiss(animated: true, completion: nil)
         
     }
     
