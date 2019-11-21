@@ -167,15 +167,7 @@ extension FavoriteViewController {
 
 extension FavoriteViewController : TableViewDelegate {
     func deleteRowAtIndexPath(indexPath: IndexPath) {
-        print("привет из делегата на удаление")
-        print("before deletion: \(citiesArray.count)")
-        citiesArray.remove(at: indexPath.row)
-        print("after: \(citiesArray.count)")
-        print(("weatherData before: \(weathersData.count)"))
-        updateWeatherInfo()
-        print(("weatherData after: \(weathersData.count)"))
-        table.deleteRows(at: [indexPath], with: UITableView.RowAnimation.automatic)
-        saveDate()
+        print("delete: \(indexPath)")
     }
     
     func didSelectItem(item: Int) {
