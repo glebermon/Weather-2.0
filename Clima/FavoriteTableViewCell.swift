@@ -24,21 +24,22 @@ class FavoriteTableViewCell : UITableViewCell {
     let cityLabel : UILabel = {
        let lbl = UILabel()
         lbl.translatesAutoresizingMaskIntoConstraints = false
-        lbl.font = UIFont.systemFont(ofSize: 30)
+        lbl.font = UIFont.systemFont(ofSize: 20)
         return lbl
     }()
     
     let temperatureLabel : UILabel = {
         let lbl = UILabel()
         lbl.translatesAutoresizingMaskIntoConstraints = false
-        lbl.font = UIFont.systemFont(ofSize: 15)
+        lbl.font = UIFont.systemFont(ofSize: 25)
+        lbl.textAlignment = .right
         return lbl
     }()
     
     let weatherIcon : UIImageView = {
        let img = UIImageView()
         img.translatesAutoresizingMaskIntoConstraints = false
-        img.backgroundColor = .purple
+        img.backgroundColor = .clear
         img.contentMode = .scaleAspectFit
         return img
     }()
@@ -62,14 +63,23 @@ class FavoriteTableViewCell : UITableViewCell {
         cardView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -2.5).isActive = true
         
         cardView.addSubview(cityLabel)
+//        cityLabel.backgroundColor = .whiter
         cityLabel.topAnchor.constraint(equalTo: cardView.topAnchor, constant: 2).isActive = true
         cityLabel.leadingAnchor.constraint(equalTo: cardView.leadingAnchor, constant: 2).isActive = true
         
         cardView.addSubview(temperatureLabel)
-        temperatureLabel.topAnchor.constraint(equalTo: cityLabel.bottomAnchor, constant: 2).isActive = true
-        temperatureLabel.leadingAnchor.constraint(equalTo: cardView.leadingAnchor, constant: 2).isActive = true
+//        temperatureLabel.backgroundColor = .white
+        temperatureLabel.trailingAnchor.constraint(equalTo: cardView.trailingAnchor, constant: -8).isActive = true
+        temperatureLabel.centerYAnchor.constraint(equalTo: cardView.centerYAnchor).isActive = true
+        temperatureLabel.heightAnchor.constraint(equalTo: cardView.heightAnchor, multiplier: 0.7).isActive = true
+        temperatureLabel.widthAnchor.constraint(equalTo: cardView.heightAnchor, multiplier: 0.7).isActive = true
         
         cardView.addSubview(weatherIcon)
+//        weatherIcon.backgroundColor = .white
+        weatherIcon.trailingAnchor.constraint(equalTo: temperatureLabel.leadingAnchor, constant: -2).isActive = true
+        weatherIcon.centerYAnchor.constraint(equalTo: cardView.centerYAnchor).isActive = true
+        weatherIcon.heightAnchor.constraint(equalTo: cardView.heightAnchor, multiplier: 0.7).isActive = true
+        weatherIcon.widthAnchor.constraint(equalTo: cardView.heightAnchor, multiplier: 0.7).isActive = true
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

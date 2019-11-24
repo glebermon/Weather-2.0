@@ -19,14 +19,15 @@ protocol TestDelegate {
 class WeatherViewController: UIViewController, CLLocationManagerDelegate, ChangeCityDelegate, FavoriteViewControllerDelegate {
     
     //Constants
-    let WEATHER_URL = "http://api.openweathermap.org/data/2.5/weather"
-    let APP_ID = "59e6f6554feff9419329a045ca072f24"
-    let unitsMetric = "metric"
+//    let WEATHER_URL = "http://api.openweathermap.org/data/2.5/weather"
+//    let APP_ID = "59e6f6554feff9419329a045ca072f24"
+//    let unitsMetric = "metric"
     var weatherDataModel = WeatherDataModel()
     let monitor = NWPathMonitor()
     let queue = DispatchQueue(label: "Monitor")
     
     /***Get your own App ID at https://openweathermap.org/appid ****/
+    
     
 
     //TODO: Declare instance variables here
@@ -78,7 +79,6 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate, Change
             }
             
         }
-        
     }
 
     //MARK: - JSON Parsing
@@ -93,7 +93,7 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate, Change
             weatherDataModel.city = json["name"].stringValue
             weatherDataModel.condition = json["weather"][0]["id"].intValue
 //            print("!!!!!!!!!!!!!!!!!!!!!!!!!!\(json["weather"][0]["id"])")
-            weatherDataModel.weatherIconName = weatherDataModel.updateWeatherIcon(condition: weatherDataModel.condition)
+            weatherDataModel.weatherIconName = WeatherDataModel.updateWeatherIcon(condition: weatherDataModel.condition)
             
             updateUIWithWeatherData()
             
@@ -114,7 +114,7 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate, Change
         
         cityLabel.text = weatherDataModel.city
         temperatureLabel.text = "\(weatherDataModel.temperature)\u{00B0}"
-        weatherIcon.image = UIImage(named: weatherDataModel.updateWeatherIcon(condition: weatherDataModel.condition))
+        weatherIcon.image = UIImage(named: WeatherDataModel.updateWeatherIcon(condition: weatherDataModel.condition))
         
     }
     
@@ -137,9 +137,9 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate, Change
             let latitude = String(location.coordinate.latitude)
             let longitude = String(location.coordinate.longitude)
             
-            let params : [String : String] = ["lat" : latitude, "lon" : longitude, "appid" : APP_ID, "units" : unitsMetric]
+            let params : [String : String] = ["lat" : latitude, "lon" : longitude, "appid" : API.APP_ID, "units" : API.unitsMetric]
             
-            getWeatherData(url: WEATHER_URL, parameters: params)
+            getWeatherData(url: API.WEATHER_URL, parameters: params)
         }
     }
     
@@ -164,15 +164,18 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate, Change
     
     func userEnteredANewCityName(city : String) {
         
-        let params : [String : String] = ["q" : city, "appid" : APP_ID, "units" : unitsMetric]
-        getWeatherData(url: WEATHER_URL, parameters: params)
+        let params : [String : String] = ["q" : city, "appid" : API.APP_ID, "units" : API.unitsMetric]
+        getWeatherData(url: API.WEATHER_URL, parameters: params)
         
     }
     
     func userChoseFavoriteCity(cityId: Int) {
         print(cityId)
-        let params : [String : String] = ["id" : String(cityId), "appid" : APP_ID, "units" : unitsMetric]
-        getWeatherData(url: WEATHER_URL, parameters: params)
+        let params : [String : String] = ["id" : String(cityId)
+                                         ,"appid" : API.APP_ID
+                                         ,"units" : API.unitsMetric]
+        getWeatherData(url: API.WEATHER_URL
+                      ,parameters: params)
         print(#function)
         print("Город приянт на WeatherViewController")
     }
@@ -204,8 +207,6 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate, Change
             } else {
                 print("No connection.")
             }
-            
-//            print(path.isExpensive)
         }
     }
 }
@@ -214,11 +215,6 @@ extension WeatherViewController : TestDelegate {
     func testDelegate(city: Int) {
         print(city)
     }
-    
-//    func testDelegate(city: String) {
-//        let params : [String : String] = ["q" : city, "appid" : APP_ID, "units" : unitsMetric]
-//        getWeatherData(url: WEATHER_URL, parameters: params)
-//    }
 }
 
 

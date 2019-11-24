@@ -7,9 +7,11 @@
 //
 
 import UIKit
+import Alamofire
+import SwiftyJSON
 
 struct WetherForFavorites {
-    var citiesWeather : [WeatherDataModel]
+    var citiesWeather : [WeatherDataModel] = [WeatherDataModel]()
 }
 
 struct WeatherDataModel {
@@ -24,7 +26,8 @@ struct WeatherDataModel {
     
     //This method turns a condition code into the name of the weather condition image
     
-    func updateWeatherIcon(condition: Int) -> String {
+    
+    static func updateWeatherIcon(condition: Int) -> String {
         
     switch (condition) {
     
@@ -64,6 +67,27 @@ struct WeatherDataModel {
         default :
             return "dunno"
         }
+    }
+}
 
+struct WeatherDataModelNew {
+
+    //Declare your model variables here
+
+    var temperature : Int = 0
+    var condition : Int = 0
+    var city : String = ""
+    var weatherIconName : String = ""
+    var id : Int = 0
+    var country : String = ""
+
+
+    //This method turns a condition code into the name of the weather condition image
+    init(json : JSON) {
+        self.city = json["name"].stringValue
+        self.id = json["id"].intValue
+        self.condition = json["weather"][0]["id"].intValue
+        self.temperature = json["main"]["temp"].intValue
+        self.country = json["sys"]["country"].stringValue
     }
 }

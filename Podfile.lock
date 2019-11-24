@@ -4,6 +4,7 @@ PODS:
   - ReachabilitySwift (5.0.0)
   - SVProgressHUD (2.2.5)
   - SwiftyJSON (5.0.0)
+  - SwipeCellKit (2.7.1)
 
 DEPENDENCIES:
   - Alamofire
@@ -11,6 +12,7 @@ DEPENDENCIES:
   - ReachabilitySwift
   - SVProgressHUD
   - SwiftyJSON
+  - SwipeCellKit
 
 SPEC REPOS:
   trunk:
@@ -19,6 +21,7 @@ SPEC REPOS:
     - ReachabilitySwift
     - SVProgressHUD
     - SwiftyJSON
+    - SwipeCellKit
 
 SPEC CHECKSUMS:
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
@@ -26,7 +29,8 @@ SPEC CHECKSUMS:
   ReachabilitySwift: 985039c6f7b23a1da463388634119492ff86c825
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
+  SwipeCellKit: 3972254a826da74609926daf59b08d6c72e619ea
 
-PODFILE CHECKSUM: d4245a1b3f96ae98754e3f9ba5ad9f17229b15f8
+PODFILE CHECKSUM: e4fba9849ef773c2fe9eae5196b66dfc08fcfc0e
 
 COCOAPODS: 1.8.4

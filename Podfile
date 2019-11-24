@@ -11,5 +11,6 @@ target 'Clima' do
     pod 'SVProgressHUD'
     pod 'ReachabilitySwift'
     pod 'iOSDropDown'
+    pod 'SwipeCellKit'
 
 end

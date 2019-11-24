@@ -65,11 +65,10 @@ extension TableView : UITableViewDelegate {
 
         let share = UITableViewRowAction(style: .normal, title: "Edit") { (action, indexPath) in
             // share item at indexPath
-            
         }
 
         share.backgroundColor = UIColor.blue
 
-        return [delete, share]
+        return [delete]
     }
 }

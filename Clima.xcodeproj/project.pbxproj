@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		332046042389A6B70061A0F3 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332046032389A6B70061A0F3 /* NetworkService.swift */; };
+		332046062389A7600061A0F3 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332046052389A7600061A0F3 /* API.swift */; };
 		33890BE02381624500063ABE /* cityList.json in Resources */ = {isa = PBXBuildFile; fileRef = 33890BDF2381624500063ABE /* cityList.json */; };
 		33890BE42381635300063ABE /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33890BE32381635300063ABE /* FavoriteViewController.swift */; };
 		33890BE72381652C00063ABE /* FavoriteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33890BE62381652C00063ABE /* FavoriteTableViewCell.swift */; };
@@ -26,6 +28,8 @@
 
 /* Begin PBXFileReference section */
 		1B729CC60E5E01F7505005FF /* Pods_Clima.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Clima.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		332046032389A6B70061A0F3 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		332046052389A7600061A0F3 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		33890BDF2381624500063ABE /* cityList.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = cityList.json; sourceTree = "<group>"; };
 		33890BE32381635300063ABE /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
 		33890BE62381652C00063ABE /* FavoriteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteTableViewCell.swift; sourceTree = "<group>"; };
@@ -58,6 +62,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		332046022389A69D0061A0F3 /* NetworkService */ = {
+			isa = PBXGroup;
+			children = (
+				332046032389A6B70061A0F3 /* NetworkService.swift */,
+				332046052389A7600061A0F3 /* API.swift */,
+			);
+			name = NetworkService;
+			sourceTree = "<group>";
+		};
 		33890BE5238164F800063ABE /* FavoriteTableViewCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -96,6 +109,7 @@
 		63E28ACD1B99C32400FBF6E0 /* Clima */ = {
 			isa = PBXGroup;
 			children = (
+				332046022389A69D0061A0F3 /* NetworkService */,
 				63E28AFD1B99C38100FBF6E0 /* View */,
 				63E28AFA1B99C36D00FBF6E0 /* Model */,
 				63E28AFB1B99C37500FBF6E0 /* Controller */,
@@ -260,6 +274,7 @@
 				"${BUILT_PRODUCTS_DIR}/ReachabilitySwift/Reachability.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/SwipeCellKit/SwipeCellKit.framework",
 				"${BUILT_PRODUCTS_DIR}/iOSDropDown/iOSDropDown.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -268,6 +283,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwipeCellKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/iOSDropDown.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -282,6 +298,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				332046042389A6B70061A0F3 /* NetworkService.swift in Sources */,
 				33A5962A2381507200C83FCB /* CitiesList.swift in Sources */,
 				33890BED2381F76600063ABE /* TableView.swift in Sources */,
 				63E28AF11B99C35700FBF6E0 /* WeatherDataModel.swift in Sources */,
@@ -291,6 +308,7 @@
 				33890BE72381652C00063ABE /* FavoriteTableViewCell.swift in Sources */,
 				33890BEA2381C89B00063ABE /* WeatherData.swift in Sources */,
 				33890BEB2381C89B00063ABE /* WeatherResponse.swift in Sources */,
+				332046062389A7600061A0F3 /* API.swift in Sources */,
 				63E28AF61B99C36100FBF6E0 /* ChangeCityViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
